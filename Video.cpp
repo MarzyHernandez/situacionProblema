@@ -1,7 +1,16 @@
+/*
+Autor: Mariana Marzayani Hernández Jurado
+
+Clase base Video
+Video.cpp
+*/
+
+// Incluir las librerías y archivos necesarios
 #include "Video.h"
 #include <iostream>
 using namespace std;
 
+// Constructor vació de Video
 Video::Video()
 {
     id="-";
@@ -13,6 +22,7 @@ Video::Video()
 
 }
 
+// Constructor con parámetros
 Video::Video(string id, string nombre, vector<string> genero, string calificacion, 
 string fecha, string duracion)
 {
@@ -24,42 +34,35 @@ string fecha, string duracion)
     this-> duracion = duracion;
 }
 
+// Devuelve le ID del video
 string Video::getID()
 {
     return id;
 }
 
+// Devuelve el nombre del video
 string Video::getNombre()
 {
     return nombre;
 }
 
+// Devueve el género
 vector<string> Video::getGenero()
 {
     return genero;
 }
 
+// Devuelve la calificacion
 float Video::getCalificacion()
 {
     float calf= stof(calificacion);
     return calf;
 }
 
-int Video::getDuracion()
+// Cambia la calificación 
+void Video::setCalificacion(float calificacion)
 {
-    int durac= stoi(duracion);
-    return durac;
-}
-
-string Video::getFecha()
-{
-    return fecha;
-}
-
-void Video::promedioCalificacion(float calificacion)
-{
-    float c= (this->getCalificacion()+calificacion)/2;
-    this->calificacion= to_string(c);
+    this->calificacion= to_string(calificacion);
 }
 
 void Video::mostrarDatos()

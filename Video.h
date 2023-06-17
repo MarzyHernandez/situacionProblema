@@ -1,10 +1,20 @@
+/*
+Autor: Mariana Marzayani Hernández Jurado
+
+Clase base Video
+Video.h
+*/
+
+// Comparación del sistema
 #ifndef VIDEO_H
 #define VIDEO_H
 
+// Incluir las librerías y archivos necesarios
 #include <vector>
 #include <iostream>
 using namespace std;
 
+// Declaración de la clase abstracta video
 class Video {
 protected:
     string id;
@@ -21,10 +31,10 @@ public:
     string getNombre();
     vector<string> getGenero();
     float getCalificacion();
-    int getDuracion();
-    string getFecha();
-    void promedioCalificacion(float calificacion);
-    virtual void mostrarDatos();
+    void setCalificacion(float calificacion);
+    // Función virtual pura
+    virtual void mostrarDatos()=0;
 };
 
 #endif
+
