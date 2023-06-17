@@ -6,7 +6,7 @@ Episodio.cpp
 */
 
 // Incluir librerías y archivos necesarios
-#include "Episodio.h"s
+#include "Episodio.h"
 #include <sstream>
 
 // Muestra en pantalla los datos del episodios
