@@ -317,7 +317,6 @@ int main()
         default:
             cout << "Porfavor ingrese una opción válida" << endl;
             this_thread::sleep_for(chrono::seconds(1));
-            menu = true;
             break;
         }
     }
