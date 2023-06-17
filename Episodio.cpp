@@ -1,7 +1,16 @@
+/*
+Autor: Mariana Marzayani Hernández Jurado
+
+Clase derivada Episodio
+Episodio.cpp
+*/
+
+// Incluir las librerías y archivos necesarios
 #include "Episodio.h"
 #include <sstream>
 
-
+// Muestra en pantalla los datos del episodios
+// Se reescribe el método
 void Episodio::mostrarDatos()
 {
     cout<< "Serie: "<< nombre << endl;
@@ -14,6 +23,7 @@ void Episodio::mostrarDatos()
     cout<< "Fecha:  "<< fecha<< endl;
 }
 
+// Contrustor vacío
 Episodio::Episodio(): Video()
 {
     nombreEpisodio= "-";
@@ -21,6 +31,7 @@ Episodio::Episodio(): Video()
     numeroEpisodio="0";
 }
 
+// Contructor con parámetros
 Episodio::Episodio(string id, string nombre, vector<string> genero, 
 string calificacion, string fecha, string duracion,string idEp, string nombreEpisodio, 
 string temporada, string numeroEpisodio):Video(id,  nombre, genero,  calificacion, 
@@ -31,20 +42,23 @@ string temporada, string numeroEpisodio):Video(id,  nombre, genero,  calificacio
     this->numeroEpisodio= numeroEpisodio;
 }
 
+// Constructor a partir de un vector
 Episodio::Episodio(vector<string> datos)
 {
+    // Asigna los datos segpun su posición
     this->id = datos[0];
     this->nombre= datos[1];
     this->duracion=datos[2]  ;
     string str = datos[3];
     vector<string> genero;
     size_t pos = 0;
-    while ((pos = datos[4].find('&')) != string::npos) {
-        string elemento = datos[4].substr(0, pos);
+    // Ciclo while para separar los géneros
+    while ((pos = datos[3].find('&')) != string::npos) {
+        string elemento = datos[3].substr(0, pos);
         genero.push_back(elemento);
-        datos[4].erase(0, pos + 1);
+        datos[3].erase(0, pos + 1);
     }
-    genero.push_back(datos[4]);
+    genero.push_back(datos[3]);
     this->calificacion= datos[4];
     this->fecha= datos[5];
     this->idEp= datos [6];
