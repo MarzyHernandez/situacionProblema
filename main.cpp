@@ -26,47 +26,6 @@ vector<Video *> CargarArchivo();
 string eliminarEspacios(const string &cadena);
 bool buscarGenero(const string &generoBuscado, const vector<string> &generos);
 
-int main()
-{
-    vector<Video *> contenido;
-    float calf;
-    int opcion;
-    bool menu=false;
-    while (!menu){
-        cout<< "----MENÚ PRINCIPAL-----"<<endl <<endl;
-        cout<< "1. Cargar el Archivo de Peliculas" <<endl;
-        cout<< "2. Filtrar resultados" <<endl;
-        cout<< "3. Buscar serie" <<endl;
-        cout<< "4. Filtrar películas" <<endl;
-        cout<< "5. Calificar contenido" <<endl;
-        cout<< "6. Salir" <<endl;
-        cout<< "Ingresa la opción que deseas: ";
-        cin>> opcion;
-
-        switch (opcion)
-        {
-        case 1:
-            contenido = CargarArchivo();
-            this_thread::sleep_for(chrono::seconds(1));
-            break;
-        
-        case 2: 
-            calf= contenido[1]->getCalificacion();
-            cout<<calf;
-            break;
-        
-        default:
-            menu=true;
-            break;
-        }
-    }
-    cout << "Hola mundo" << endl;
-    
-    
-    return 0;
-}
-
-
 // Función main principal
 int main()
 {
