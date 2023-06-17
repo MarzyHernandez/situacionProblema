@@ -5,25 +5,35 @@ Clase derivada Episodio
 Episodio.cpp
 */
 
-// Incluir las librerías y archivos necesarios
-#include "Episodio.h"
+// Incluir librerías y archivos necesarios
+#include "Episodio.h"s
 #include <sstream>
 
 // Muestra en pantalla los datos del episodios
-// Se reescribe el método
+// Se sobreescribe el método
 void Episodio::mostrarDatos()
 {
-    cout<< "Serie: "<< nombre << endl;
-    cout<< "Nombre: "<< nombreEpisodio<< endl;
+    cout<< "Nombre del episodio: "<< nombreEpisodio<< endl;
     cout<< "Temporada: "<< temporada<< endl;
     cout<< "Episodio:  "<< numeroEpisodio<< endl;
     cout<< "Duración: "<< duracion << endl;
-    cout<< "Genero: "<< endl;
+    cout<< "Genero: ";
+    for (string i: getGenero()){
+        cout << i <<" ";
+    }
+    cout <<endl;
     cout<< "Calificación: "<< calificacion<< endl;
     cout<< "Fecha:  "<< fecha<< endl;
+    cout <<"---------------------------------" <<endl;
 }
 
-// Contrustor vacío
+// Regresa el nombre del episodio
+string Episodio::getNombreEp()
+{
+    return nombreEpisodio;
+}
+
+// Constructor vació
 Episodio::Episodio(): Video()
 {
     nombreEpisodio= "-";
@@ -31,7 +41,7 @@ Episodio::Episodio(): Video()
     numeroEpisodio="0";
 }
 
-// Contructor con parámetros
+// Constructor con parámetross
 Episodio::Episodio(string id, string nombre, vector<string> genero, 
 string calificacion, string fecha, string duracion,string idEp, string nombreEpisodio, 
 string temporada, string numeroEpisodio):Video(id,  nombre, genero,  calificacion, 
@@ -45,10 +55,10 @@ string temporada, string numeroEpisodio):Video(id,  nombre, genero,  calificacio
 // Constructor a partir de un vector
 Episodio::Episodio(vector<string> datos)
 {
-    // Asigna los datos segpun su posición
+    // Asigna los datos segun su posición
     this->id = datos[0];
     this->nombre= datos[1];
-    this->duracion=datos[2]  ;
+    this->duracion=datos[2] ;
     string str = datos[3];
     vector<string> genero;
     size_t pos = 0;
@@ -59,6 +69,7 @@ Episodio::Episodio(vector<string> datos)
         datos[3].erase(0, pos + 1);
     }
     genero.push_back(datos[3]);
+    this->genero= genero;
     this->calificacion= datos[4];
     this->fecha= datos[5];
     this->idEp= datos [6];

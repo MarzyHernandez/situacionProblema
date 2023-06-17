@@ -41,7 +41,7 @@ Pelicula::Pelicula(vector<string> datos)
     this->fecha= datos[5];
 }
 
-// Muestra en pantalla los datos del episodios
+// Muestra en pantalla los datos de la película
 // Se sobreescribe el método
 void Pelicula::mostrarDatos()
 {
